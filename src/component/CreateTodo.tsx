@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useSetRecoilState } from 'recoil';
-import { todoState } from '../atom';
+import { todoState, Categories } from '../atom';
 
 interface IFrom {
   todo: string;
@@ -17,7 +17,7 @@ function CreateTodo() {
 
   const onValid = ({ todo }: IFrom) => {
     setTodos((oldValue) => [
-      { text: todo, category: 'TO_DO', id: Date.now() },
+      { text: todo, category: Categories.TO_DO, id: Date.now() },
       ...oldValue,
     ]);
   };
